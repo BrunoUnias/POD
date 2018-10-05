@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define TAMANHO_VETOR 10000
+#define TAMANHO_VETOR 1000
 
 int* inicializaVetorRandom() {
     int i;
@@ -32,7 +32,19 @@ int* inicializaVetorInvertido() {
     return ret;
 }
 
-
+void selecitonSort(int vet[], int tam){
+	int i, j, min, aux;
+	for(i=0; i<tam; i++){
+		for(j=i+1; j<tam; j++){
+			if(vet[min] > vet[j])
+			min = j;
+		}
+		aux = vet[i];
+		vet[i] = vet[min];
+		vet[min] = aux;
+		
+	}
+}
 
 void insertionSort(int vet[], int tam) {
     int i,j = 0, aux = 0;
@@ -105,6 +117,29 @@ int main () {
     v = inicializaVetorInvertido();
     start = clock();
     bubbleSort(v, TAMANHO_VETOR);
+    end = clock();
+    free(v);
+    printf("\t Invertido: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
+    
+    
+    printf("selectionSort\n");
+     v = inicializaVetorRandom();
+    start = clock();
+    selectionSort(v, TAMANHO_VETOR);
+    end = clock();
+    free(v);
+    printf("\t Random: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
+    
+    v = inicializaVetorOrdenado();
+    start = clock();
+    selectionSort(v, TAMANHO_VETOR);
+    end = clock();
+    free(v);
+    printf("\t Ordenado: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
+    
+    v = inicializaVetorInvertido();
+    start = clock();
+    selectionSort(v, TAMANHO_VETOR);
     end = clock();
     free(v);
     printf("\t Invertido: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
