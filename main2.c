@@ -147,40 +147,6 @@ int main () {
     return 0;
 }
 
-/*void BubbleSort(int vert[], int tam){
-	int i,j,aux;
-	for(i= tam-1; i>0; i--){
-		for(j=0; j<i; j++){
-			if(vert[j] > vert[j+1]){
-				aux = vert[j];
-				vert[j] = vert[j+1];
-				vert[j+1] = aux;
-			}
-		}
-	}
-}*/
 
-/*printf("BubbleSort\n");
- v= inicializaVetorRandom();
- v = inicializaVetorRandom();
-    start = clock();
-    bubbleSort(v, TAMANHO_VETOR);
-    end = clock();
-    free(v);
-    printf("\t Random: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
-    
-    v = inicializaVetorOrdenado();
-    start = clock();
-    bubbleSort(v, TAMANHO_VETOR);
-    end = clock();
-    free(v);
-    printf("\t Ordenado: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
-    
-    v = inicializaVetorInvertido();
-    start = clock();
-    bubbleSort(v, TAMANHO_VETOR);
-    end = clock();
-    free(v);
-    printf("\t Invertido: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));*/
 
 
