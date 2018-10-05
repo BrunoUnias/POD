@@ -32,7 +32,7 @@ int* inicializaVetorInvertido() {
     return ret;
 }
 
-void selecitonSort(int vet[], int tam){
+void selectionSort(int vet[], int tam){
 	int i, j, min, aux;
 	for(i=0; i<tam; i++){
 		for(j=i+1; j<tam; j++){
@@ -72,6 +72,25 @@ void bubbleSort(int vert[], int tam){
 	}
 }
 
+void quickSort(int a[], int n){
+	int i, j, p, t;
+	if(n<2)
+	return;
+	p = a[n/2];
+	for(i=0,j = n-1;; i++, j--){
+		while(a[i] < p)
+			i++;
+			while(p< a[j])
+			if(i >= j)
+			break;
+			t = a[i];
+			a[i] = a[j];
+			a[j] = t;
+			
+	}
+	quickSort(a,i);
+    quickSort(a+i, n-i);
+}
 
 int main () {
     long int start, end;
@@ -99,7 +118,7 @@ int main () {
     free(v);
     printf("\t Invertido: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
        
-       printf("BubbleSort\n");
+   printf("BubbleSort\n");
    v = inicializaVetorRandom();
     start = clock();
     bubbleSort(v, TAMANHO_VETOR);
@@ -140,6 +159,28 @@ int main () {
     v = inicializaVetorInvertido();
     start = clock();
     selectionSort(v, TAMANHO_VETOR);
+    end = clock();
+    free(v);
+    printf("\t Invertido: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
+    
+    printf("QuickSort\n");
+     v = inicializaVetorRandom();
+    start = clock();
+    quickSort(v, TAMANHO_VETOR);
+    end = clock();
+    free(v);
+    printf("\t Random: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
+    
+    v = inicializaVetorOrdenado();
+    start = clock();
+    quickSort(v, TAMANHO_VETOR);
+    end = clock();
+    free(v);
+    printf("\t Ordenado: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
+    
+    v = inicializaVetorInvertido();
+    start = clock();
+    quickSort(v, TAMANHO_VETOR);
     end = clock();
     free(v);
     printf("\t Invertido: %ld milisegundos\n", (end - start) / (CLOCKS_PER_SEC / 1000));
